@@ -1,5 +1,6 @@
 package com.biolab.ecommerce.entities;
 
+import com.biolab.ecommerce.entities.enums.StatusPedido;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,8 +24,8 @@ public class Pedido {
     private StatusPedido status;
     @ManyToOne
     private Usuario cliente;
-
-
+    @OneToOne(mappedBy = "pedido" , cascade = CascadeType.ALL)
+    private Pagamento pagamento;
 
 
 }
